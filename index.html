@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+
+</head>
+
+<body>
+    <div>
+        <section class="firstSection">
+            <div class="wraper">
+                <!-- grid item -->
+
+                <div class="first_item">
+
+                    <p>---SALE FEVER---</p>
+                    <h2>
+                        Purchase TK 200 or above & get
+                        <span>
+                            20% off
+                        </span>
+                    </h2>
+                    <span class="">Use Promo Code <button>SELL200</button></span>
+                </div>
+
+                <!-- grid item -->
+                <div class="">
+                    <img class="" src="./images/Summer.png">
+                </div>
+            </div>
+
+
+
+        </section>
+        <section style="background-color: #F8F8F8;">
+            <h2>
+                Kitchenware
+            </h2>
+           <div class="gcontainer mx-8">
+            <div class="card-area">
+                <div class="container mx-auto py-8">
+                    <div class="grid gap-8 grid-cols-1 sm:grid-cols-3">
+                      <div class="card w-auto bg-base-100 shadow-xl card-clickable" id="card1" >
+                        <figure><img  src="images/prod1.png" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+
+                            </div>
+                          <h2 class=" text-center">one</h2>
+                          <p id="price" class="text-center">200.00 TK</p>
+                   
+                        </div>
+                      </div>
+                      <div class="card w-auto bg-base-100 shadow-xl card-clickable" data-item-name="K. Accessories" id="card2">
+                        <figure><img src="images/prod2.png" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+
+                            </div>
+                            <h2 class=" text-center">two</h2>
+                            <p id="price" class="text-center">39.00 TK</p>
+                     
+                        </div>
+                      </div>
+                      <div class="card w-auto bg-base-100 shadow-xl card-clickable" data-item-name="K. Accessories">
+                        <figure><img src="images/prod3.png" alt="Shoes" /></figure>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+                                <i class="fas fa-star" style="color: gold;"></i>
+
+                            </div>
+                            <h2 class=" text-center">three</h2>
+                            <p id="price" class="text-center">25.00 TK</p>
+                     
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+            </div>
+            <div class="calcolate-area">
+                <div class="cupon_are">
+                    <div style=" margin: 20px auto auto 30px;">
+
+                        <p>Have coupon?</p>
+                        <input style="border: 1px solid black; padding: 7px 0;" class="" type="text">
+                        <input style="background-color: #E527B2; padding: 7px 10px; color: white;" type="submit">
+                    </div>
+                    <div id="selectedItemContainer" style=" margin: 20px auto auto 30px;">
+                        <p>Selected item name:</p>
+                        <ul id="selectedItemNames"></ul>
+
+                        <p>Total price:</p>
+                        <p id="totalPrice">0.00 TK</p> 
+                        <p>discuount</p>
+                        <p>TOTAL</p>
+                    </div>
+                </div>
+            </div>
+
+           </div>
+
+
+
+
+        </section>
+    </div>
+
+    <!-- <script>
+        const cards = document.querySelectorAll('.card-clickable');
+        const selectedItemNamesContainer = document.getElementById('selectedItemNames');
+    
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const itemName = card.querySelector('h2').textContent;
+                const listItem = document.createElement('li');
+                listItem.textContent = itemName;
+                selectedItemNamesContainer.appendChild(listItem);
+            });
+        });
+    </script> -->
+
+    <script>
+        const cards = document.querySelectorAll('.card-clickable');
+        const selectedItemNamesContainer = document.getElementById('selectedItemNames');
+        const totalPriceElement = document.getElementById('totalPrice');
+        let totalPrice = 0; // Initialize total price
+        
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const itemName = card.querySelector('h2').textContent;
+                const priceText = card.querySelector('#price').textContent;
+                const price = parseFloat(priceText); // Extract price as a number
+                
+                // Update selected item names
+                const listItem = document.createElement('li');
+                listItem.textContent = itemName;
+                selectedItemNamesContainer.appendChild(listItem);
+                
+                // Update total price and display it
+                totalPrice += price;
+                totalPriceElement.textContent = totalPrice.toFixed(2) + ' TK';
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

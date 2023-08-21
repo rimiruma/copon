@@ -1,0 +1,34 @@
+.firstSection{
+    background-color: #F9F6E2;
+    padding:0 50px
+
+}
+
+.wraper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.first_item{
+    margin:0 auto;
+}
+
+.cupon_are{
+    width: 400px;
+}
+
+.gcontainer{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* Divided into 12 equal units */
+    gap: 10px; /* Gap between items */
+}
+
+.card-area{
+    grid-column: span 8;
+}
+
+.calcolate-area{
+    grid-column: span 4;
+}
